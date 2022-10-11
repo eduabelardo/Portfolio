@@ -53,43 +53,43 @@ export const Skills = () => {
 								className='owl-carousel owl-theme skill-slider'
 							>
 								<div className='item'>
-									<img src={javascript} alt='Image' />
+									<img src={javascript} alt='' />
 									<h5>JavaScript</h5>
 								</div>
 								<div className='item'>
-									<img src={html} alt='Image' />
+									<img src={html} alt='' />
 									<h5>HTML</h5>
 								</div>
 								<div className='item'>
-									<img src={css} alt='Image' />
+									<img src={css} alt='' />
 									<h5>CSS</h5>
 								</div>
 								<div className='item'>
-									<img src={react} alt='Image' />
+									<img src={react} alt='' />
 									<h5>React</h5>
 								</div>
 								<div className='item'>
-									<img src={node} alt='Image' />
+									<img src={node} alt='' />
 									<h5>Node JS</h5>
 								</div>
 								<div className='item'>
-									<img src={redux} alt='Image' />
+									<img src={redux} alt='' />
 									<h5>Redux</h5>
 								</div>
 								<div className='item'>
-									<img src={sap} alt='Image' />
+									<img src={sap} alt='' />
 									<h5>SAP UI5 - Fiori</h5>
 								</div>
 								<div className='item'>
-									<img src={postgre} alt='Image' />
+									<img src={postgre} alt='' />
 									<h5>PostgreSQL</h5>
 								</div>
 								<div className='item'>
-									<img src={github} alt='Image' />
+									<img src={github} alt='' />
 									<h5>GitHub</h5>
 								</div>
 								<div className='item'>
-									<img src={json} alt='Image' />
+									<img src={json} alt='' />
 									<h5>Json</h5>
 								</div>
 							</Carousel>
@@ -97,7 +97,7 @@ export const Skills = () => {
 					</div>
 				</div>
 			</div>
-			<img className='background-image-left' src={colorSharp} alt='Image' />
+			<img className='background-image-left' src={colorSharp} alt='' />
 		</section>
 	);
 };

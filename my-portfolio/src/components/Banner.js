@@ -3,7 +3,7 @@ import {useState, useEffect} from 'react';
 import {Container, Row, Col} from 'react-bootstrap';
 import headerImg from '../assets/img/header-img.svg';
 import {ArrowRightCircle} from 'react-bootstrap-icons';
-// import 'animate.css';
+import 'animate.css';
 import TrackVisibility from 'react-on-screen';
 
 export const Banner = () => {
@@ -12,18 +12,8 @@ export const Banner = () => {
 	const [text, setText] = useState('');
 	const [delta, setDelta] = useState(300 - Math.random() * 100);
 	const [index, setIndex] = useState(1);
-	const toRotate = ['Web Developer', 'Adventurer', 'I am also funny ;)'];
+	const toRotate = ['Web Developer'];
 	const period = 2000;
-
-	useEffect(() => {
-		let ticker = setInterval(() => {
-			tick();
-		}, delta);
-
-		return () => {
-			clearInterval(ticker);
-		};
-	}, [text]);
 
 	const tick = () => {
 		let i = loopNum % toRotate.length;
@@ -51,6 +41,15 @@ export const Banner = () => {
 			setIndex((prevIndex) => prevIndex + 1);
 		}
 	};
+	useEffect(() => {
+		let ticker = setInterval(() => {
+			tick();
+		}, delta);
+
+		return () => {
+			clearInterval(ticker);
+		};
+	}, [text, delta]);
 
 	return (
 		<section className='banner' id='home'>
@@ -70,7 +69,7 @@ export const Banner = () => {
 										<span
 											className='txt-rotate'
 											dataPeriod='1000'
-											data-rotate='[ "Web Developer" , "Adventurer", "I am also funny ;)"]'
+											data-rotate='[ "Web Developer"]'
 										>
 											<span className='wrap'>{text}</span>
 										</span>
@@ -83,8 +82,9 @@ export const Banner = () => {
 										and started my adventure. Today I work as a Front-End Web
 										Developer in Hexagon, where every day I learn and improve my
 										technical and soft skills.
-										<br></br>I am very conversational, a teamplayer and I am
-										always trying to spread my energy and enthusiasm to my team.
+										<br></br>I speak Spanish and English, I am very
+										conversational, a teamplayer and I am always trying to
+										spread my energy and enthusiasm to my team.
 										<br></br>
 										Here you can take a look at my stack and my projects so far.
 										If you want to know more about me or have any questions,
@@ -92,6 +92,7 @@ export const Banner = () => {
 										for new challenges and I will be happy to get in touch with
 										you!
 									</p>
+
 									<button onClick={() => console.log('connect')}>
 										Let’s Connect <ArrowRightCircle size={25} />
 									</button>
