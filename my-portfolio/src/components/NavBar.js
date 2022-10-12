@@ -60,13 +60,13 @@ export const NavBar = () => {
 								Skills
 							</Nav.Link>
 							<Nav.Link
-								href='#projects'
+								href='#project'
 								className={
-									activeLink === 'projects'
+									activeLink === 'project'
 										? 'active navbar-link'
 										: 'navbar-link'
 								}
-								onClick={() => onUpdateActiveLink('projects')}
+								onClick={() => onUpdateActiveLink('project')}
 							>
 								Projects
 							</Nav.Link>
@@ -80,7 +80,7 @@ export const NavBar = () => {
 									<img src={navIcon2} alt='' />
 								</a>
 							</div>
-							<HashLink to='#connect'>
+							<HashLink to='#connect' className='button-connect'>
 								<button className='vvd'>
 									<span>Let's Connect</span>
 								</button>

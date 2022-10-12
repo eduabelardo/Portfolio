@@ -88,7 +88,7 @@ export const Contact = () => {
 											<Col size={12} sm={6} className='px-1'>
 												<input
 													type='text'
-													value={formDetails.lasttName}
+													value={formDetails.lastName}
 													placeholder='Last Name'
 													onChange={(e) =>
 														onFormUpdate('lastName', e.target.value)
