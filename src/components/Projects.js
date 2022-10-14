@@ -2,7 +2,7 @@ import React from 'react';
 import {Container, Row, Col, Tab, Nav} from 'react-bootstrap';
 import {ProjectCard} from './ProjectCard.js';
 import zoopertrivia from '../assets/img/zoopertrivia.png';
-import projImg2 from '../assets/img/project-img2.png';
+import videogames from '../assets/img/videogames.png';
 import projImg3 from '../assets/img/project-img3.png';
 import colorSharp2 from '../assets/img/color-sharp2.png';
 import 'animate.css';
@@ -17,9 +17,10 @@ export const Projects = () => {
 			url: 'https://www.zoopertrivia.com/',
 		},
 		{
-			title: 'Business Startup',
+			title: 'Videogames (First App)',
 			description: 'Design & Development',
-			imgUrl: projImg2,
+			imgUrl: videogames,
+			url: 'https://videogames-omega.vercel.app/',
 		},
 		{
 			title: 'Business Startup',
