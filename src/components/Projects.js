@@ -3,7 +3,7 @@ import {Container, Row, Col, Tab, Nav} from 'react-bootstrap';
 import {ProjectCard} from './ProjectCard.js';
 import zoopertrivia from '../assets/img/zoopertrivia.png';
 import videogames from '../assets/img/videogames.png';
-import projImg3 from '../assets/img/project-img3.png';
+import NextProjects from '../assets/img/NextProjects.png';
 import colorSharp2 from '../assets/img/color-sharp2.png';
 import 'animate.css';
 import TrackVisibility from 'react-on-screen';
@@ -23,9 +23,9 @@ export const Projects = () => {
 			url: 'https://videogames-omega.vercel.app/',
 		},
 		{
-			title: 'Business Startup',
+			title: 'Comming Soon!',
 			description: 'Design & Development',
-			imgUrl: projImg3,
+			imgUrl: NextProjects,
 		},
 	];
 
