@@ -1,4 +1,5 @@
 import React from 'react';
+import emailjs from '@emailjs/browser';
 import {useState} from 'react';
 import {Container, Row, Col} from 'react-bootstrap';
 import contactImg from '../assets/img/contact-img.svg';
@@ -16,6 +17,7 @@ export const Contact = () => {
 	const [formDetails, setFormDetails] = useState(formInitialDetails);
 	const [buttonText, setButtonText] = useState('Send');
 	const [status, setStatus] = useState({});
+	const [result, setResult] = useState(0);
 
 	const onFormUpdate = (category, value) => {
 		setFormDetails({
@@ -24,23 +26,33 @@ export const Contact = () => {
 		});
 	};
 
-	const handleSubmit = async (e) => {
+	const sendEmail = async (e) => {
 		e.preventDefault();
 		setButtonText('Sending...');
-		let response = await fetch(
-			'https://ancient-ravine-48234.herokuapp.com/contact',
-			{
-				method: 'POST',
-				headers: {
-					'Content-Type': 'application/json;charset=utf-8',
+
+		emailjs
+			.sendForm(
+				'service_k1qrm4k',
+				'template_ux2awsc',
+				e.target,
+				'pbXiXqEKPbvW4wy68'
+			)
+			.then(
+				function (response) {
+					setResult(200);
+					console.log('SUCCESS!', response.status, response.text);
 				},
-				body: JSON.stringify(formDetails),
-			}
-		);
+				function (error) {
+					setResult(500);
+					console.log('FAILED...', error);
+				}
+			);
+
 		setButtonText('Send');
-		let result = await response.json();
+
 		setFormDetails(formInitialDetails);
-		if (result.code === 200) {
+
+		if (result === 200 || result === 0) {
 			setStatus({succes: true, message: 'Message sent successfully'});
 		} else {
 			setStatus({
@@ -76,12 +88,13 @@ export const Contact = () => {
 									}
 								>
 									<h2>Get In Touch</h2>
-									<form onSubmit={handleSubmit}>
+									<form onSubmit={sendEmail}>
 										<Row>
 											<Col size={12} sm={6} className='px-1'>
 												<input
 													type='text'
 													value={formDetails.firstName}
+													name='from_name'
 													placeholder='First Name'
 													onChange={(e) =>
 														onFormUpdate('firstName', e.target.value)
@@ -92,6 +105,7 @@ export const Contact = () => {
 												<input
 													type='text'
 													value={formDetails.lastName}
+													name='from_last_name'
 													placeholder='Last Name'
 													onChange={(e) =>
 														onFormUpdate('lastName', e.target.value)
@@ -102,6 +116,7 @@ export const Contact = () => {
 												<input
 													type='email'
 													value={formDetails.email}
+													name='email_address'
 													placeholder='Email Address'
 													onChange={(e) =>
 														onFormUpdate('email', e.target.value)
@@ -112,6 +127,7 @@ export const Contact = () => {
 												<input
 													type='tel'
 													value={formDetails.phone}
+													name='phone'
 													placeholder='Phone No.'
 													onChange={(e) =>
 														onFormUpdate('phone', e.target.value)
@@ -122,6 +138,7 @@ export const Contact = () => {
 												<textarea
 													rows='6'
 													value={formDetails.message}
+													name='message'
 													placeholder='Message'
 													onChange={(e) =>
 														onFormUpdate('message', e.target.value)
