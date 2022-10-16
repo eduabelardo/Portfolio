@@ -24,7 +24,7 @@ export const Projects = () => {
 		},
 		{
 			title: 'Comming Soon!',
-			description: 'Design & Development',
+			description: '',
 			imgUrl: NextProjects,
 		},
 	];
