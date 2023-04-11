@@ -14,7 +14,7 @@ export const Projects = () => {
 			title: 'Zoopertrivia',
 			description: 'Design & Development',
 			imgUrl: zoopertrivia,
-			url: 'https://www.zoopertrivia.com/',
+			url: 'https://zooper-trivia.vercel.app/',
 		},
 		{
 			title: 'Videogames (First App)',
